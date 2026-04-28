@@ -1,123 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jontrobari Service</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JontroBari</title>
 
-  <!-- Open Graph (nice preview when shared) -->
-  <meta property="og:title" content="Jontrobari Service">
-  <meta property="og:description" content="Mobile & Computer Repair - Fast Service">
-  <meta property="og:type" content="website">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #A13258, #d94c7a);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
+/* Container */
+.container {
+  text-align: center;
+}
 
-    .container {
-      background: white;
-      padding: 28px 20px;
-      border-radius: 18px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
-      width: 90%;
-      max-width: 360px;
-      text-align: center;
-    }
+/* Logo */
+.logo {
+  width: 110px;
+  margin-bottom: 10px;
+}
 
-    .logo {
-      width: 70px;
-      margin-bottom: 10px;
-    }
+/* Title */
+h1 {
+  margin: 5px 0;
+  color: #7a1c3a;
+  font-size: 26px;
+}
 
-    h2 {
-      margin: 5px 0;
-      color: #A13258;
-    }
+p {
+  margin-bottom: 25px;
+  color: #555;
+}
 
-    p {
-      margin: 0;
-      color: #666;
-      font-size: 14px;
-    }
+/* 3D Button Base */
+.btn {
+  display: block;
+  width: 280px;
+  margin: 15px auto;
+  padding: 15px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  font-size: 16px;
+  box-shadow: 
+    0 8px 15px rgba(0,0,0,0.2),
+    inset 0 2px 3px rgba(255,255,255,0.4);
+  transition: 0.2s;
+}
 
-    .btn {
-      display: block;
-      text-decoration: none;
-      padding: 15px;
-      margin: 14px 0;
-      border-radius: 12px;
-      color: white;
-      font-weight: bold;
-      font-size: 15px;
-    }
+/* Press Effect */
+.btn:active {
+  transform: translateY(3px);
+  box-shadow: 
+    0 4px 8px rgba(0,0,0,0.2),
+    inset 0 2px 3px rgba(255,255,255,0.4);
+}
 
-    .whatsapp { background: #25D366; }
-    .call { background: #A13258; }
-    .map { background: #007bff; }
+/* Button Colors */
+.whatsapp {
+  background: linear-gradient(#34d058, #28a745);
+}
 
-    .footer {
-      margin-top: 12px;
-      font-size: 12px;
-      color: #999;
-    }
-  </style>
+.call {
+  background: linear-gradient(#4a7d8c, #2f5f6b);
+}
 
-  <!-- Simple tracking (Google Analytics optional) -->
-  <!-- Replace G-XXXXXXX with your ID if you want -->
-  <!--
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXX');
-  </script>
-  -->
-
+.map {
+  background: linear-gradient(#4a7d8c, #2f5f6b);
+}
+</style>
 </head>
 
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <!-- Logo (optional, replace link if you have one) -->
-    <img class="logo" src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png">
+  <!-- 🔥 LOGO -->
+  <img src="logo.png" class="logo">
 
-    <h2>🔧 Jontrobari Service</h2>
-    <p>Mobile & Computer Repair</p>
+  <h1>JontroBari</h1>
+  <p>At Your Service</p>
 
-    <!-- WhatsApp Business with auto message -->
-    <a class="btn whatsapp" 
-       href="https://wa.me/8801560026241?text=Hello%20Jontrobari,%20ami%20service%20nite%20chai" 
-       target="_blank">
-       💬 Chat on WhatsApp
-    </a>
+  <a class="btn whatsapp" href="https://wa.me/message/BJ7O7USQ6TWCK1">
+    Chat on WhatsApp
+  </a>
 
-    <!-- Call -->
-    <a class="btn call" 
-       href="tel:+8801560026241">
-       📞 Call Now
-    </a>
+  <a class="btn call" href="tel:+8801560026241">
+    Call Now
+  </a>
 
-    <!-- Maps -->
-    <a class="btn map" 
-       href="https://maps.app.goo.gl/5wGvWdRfqwQMRtxk6?g_st=ic" 
-       target="_blank">
-       📍 View Location
-    </a>
+  <a class="btn map" href="https://maps.app.goo.gl/5wGvWdRfqwQMRtxk6?g_st=ic">
+    View Location
+  </a>
 
-    <div class="footer">
-      Scan QR → Contact Instantly
-    </div>
-
-  </div>
+</div>
 
 </body>
 </html>
