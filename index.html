@@ -9,7 +9,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f2f2f2;
+  background: #eeeeee;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,10 +21,11 @@ body {
   text-align: center;
 }
 
-/* Logo */
+/* 🔥 Logo with shadow */
 .logo {
-  width: 110px;
-  margin-bottom: 10px;
+  width: 170px;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 8px 15px rgba(0,0,0,0.25));
 }
 
 /* Title */
@@ -36,10 +37,10 @@ h1 {
 
 p {
   margin-bottom: 25px;
-  color: #555;
+  color: #666;
 }
 
-/* 3D Button Base */
+/* 3D Button */
 .btn {
   display: block;
   width: 280px;
@@ -56,7 +57,7 @@ p {
   transition: 0.2s;
 }
 
-/* Press Effect */
+/* Press effect */
 .btn:active {
   transform: translateY(3px);
   box-shadow: 
@@ -64,7 +65,7 @@ p {
     inset 0 2px 3px rgba(255,255,255,0.4);
 }
 
-/* Button Colors */
+/* Button colors */
 .whatsapp {
   background: linear-gradient(#34d058, #28a745);
 }
@@ -83,7 +84,7 @@ p {
 
 <div class="container">
 
-  <!-- 🔥 LOGO -->
+  <!-- Logo -->
   <img src="logo.png" class="logo">
 
   <h1>JontroBari</h1>
