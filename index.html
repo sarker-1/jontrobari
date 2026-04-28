@@ -9,36 +9,35 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #eeeeee;
+  background: #f3f3f3; /* 🔥 softer match */
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-/* Container */
 .container {
   text-align: center;
 }
 
-/* Logo */
+/* 🔥 Bigger + blended logo */
 .logo {
-  width: 180px;
-  margin-bottom: 15px;
-  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.25));
+  width: 220px; /* bigger */
+  margin-bottom: 10px;
+  mix-blend-mode: multiply; /* remove box effect */
+  filter: drop-shadow(0 8px 15px rgba(0,0,0,0.2));
 }
 
 /* Title */
 h1 {
   margin: 5px 0;
   color: #7a1c3a;
-  font-size: 28px;
+  font-size: 30px;
 }
 
 p {
   margin-bottom: 25px;
   color: #666;
-  font-size: 15px;
 }
 
 /* Buttons */
@@ -51,16 +50,9 @@ p {
   text-decoration: none;
   font-weight: bold;
   color: white;
-  font-size: 16px;
   box-shadow: 
     0 8px 15px rgba(0,0,0,0.2),
     inset 0 2px 3px rgba(255,255,255,0.4);
-  transition: 0.2s;
-}
-
-/* Press effect */
-.btn:active {
-  transform: translateY(3px);
 }
 
 /* Colors */
@@ -82,14 +74,11 @@ p {
 
 <div class="container">
 
-  <!-- Logo -->
-  <img src="logo.png" class="logo" alt="JontroBari Logo">
+  <img src="logo.png" class="logo">
 
-  <!-- Title -->
   <h1>JontroBari</h1>
   <p>At Your Service</p>
 
-  <!-- Buttons -->
   <a class="btn whatsapp" href="https://wa.me/message/BJ7O7USQ6TWCK1">
     Chat on WhatsApp
   </a>
