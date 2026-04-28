@@ -9,23 +9,26 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f3f3f3; /* 🔥 softer match */
+  background: #f3f3f3;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .container {
   text-align: center;
+  padding: 20px;
 }
 
-/* 🔥 Bigger + blended logo */
+/* 🔥 Clean Logo (no blend, only shadow) */
 .logo {
-  width: 220px; /* bigger */
+  width: 240px;
   margin-bottom: 10px;
-  mix-blend-mode: multiply; /* remove box effect */
-  filter: drop-shadow(0 8px 15px rgba(0,0,0,0.2));
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.25));
 }
 
 /* Title */
@@ -44,6 +47,7 @@ p {
 .btn {
   display: block;
   width: 280px;
+  max-width: 90%;
   margin: 15px auto;
   padding: 16px;
   border-radius: 14px;
@@ -53,6 +57,12 @@ p {
   box-shadow: 
     0 8px 15px rgba(0,0,0,0.2),
     inset 0 2px 3px rgba(255,255,255,0.4);
+  transition: 0.2s;
+}
+
+/* Press effect */
+.btn:active {
+  transform: translateY(3px);
 }
 
 /* Colors */
@@ -74,7 +84,8 @@ p {
 
 <div class="container">
 
-  <img src="logo.png" class="logo">
+  <!-- 🔥 logo -->
+  <img src="logo.png?v=2" class="logo" alt="JontroBari Logo">
 
   <h1>JontroBari</h1>
   <p>At Your Service</p>
