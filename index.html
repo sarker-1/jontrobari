@@ -6,76 +6,41 @@
 <title>JontroBari</title>
 
 <style>
-body{
-  margin:0;
-  font-family:Arial;
-  background:#f3f3f3;
-  text-align:center;
-}
+body{margin:0;font-family:Arial;background:#f3f3f3;text-align:center;}
 
 /* LOADER */
 #loader{
-  position:fixed;
-  width:100%;
-  height:100%;
-  background:#f3f3f3;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:9999;
+position:fixed;width:100%;height:100%;
+display:flex;justify-content:center;align-items:center;
+background:#f3f3f3;z-index:9999;
 }
 .spinner{
-  width:50px;
-  height:50px;
-  border:5px solid #ddd;
-  border-top:5px solid #e2136e;
-  border-radius:50%;
-  animation:spin 1s linear infinite;
+width:50px;height:50px;border:5px solid #ddd;
+border-top:5px solid #e2136e;border-radius:50%;
+animation:spin 1s linear infinite;
 }
 @keyframes spin{100%{transform:rotate(360deg);}}
 
 /* INTRO */
 #intro{
-  position:fixed;
-  width:100%;
-  height:100%;
-  background:#f3f3f3;
-  display:none;
-  justify-content:center;
-  align-items:center;
-  z-index:9998;
+position:fixed;width:100%;height:100%;
+display:none;justify-content:center;align-items:center;
+background:#f3f3f3;z-index:9998;
 }
-.intro-logo{
-  width:220px;
-  animation:zoom .8s ease;
-}
-@keyframes zoom{
-  from{opacity:0;transform:scale(.5);}
-  to{opacity:1;}
-}
+.intro-logo{width:220px;animation:zoom .8s ease;}
+@keyframes zoom{from{opacity:0;transform:scale(.5);}to{opacity:1;}}
 
 /* SCREEN */
 .screen{display:none;}
 
-.logo{
-  width:260px;
-  margin-top:25px;
-}
+.logo{width:250px;margin-top:20px}
 
 /* BUTTON */
 .btn{
-  display:block;
-  width:85%;
-  max-width:320px;
-  margin:12px auto;
-  padding:15px;
-  border-radius:14px;
-  color:white;
-  font-weight:bold;
-  text-decoration:none;
+display:block;width:85%;max-width:320px;
+margin:12px auto;padding:15px;border-radius:14px;
+color:white;font-weight:bold;text-decoration:none;
 }
-.btn:active{transform:scale(.96);}
-
 .whatsapp{background:#28a745;}
 .call{background:#2f5f6b;}
 .map{background:#2f5f6b;}
@@ -85,80 +50,45 @@ body{
 
 /* BACK */
 .back{
-  position:fixed;
-  top:15px;
-  left:15px;
-  background:#333;
-  color:#fff;
-  padding:10px;
-  border-radius:50%;
-  display:none;
-  z-index:10000;
+position:fixed;top:15px;left:15px;
+background:#333;color:#fff;padding:10px;
+border-radius:50%;display:none;z-index:10000;
 }
 
 /* LIST */
 .list{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:#fff;
-  overflow-y:auto;
-  text-align:left;
-  padding:20px;
+position:fixed;top:0;left:0;width:100%;height:100%;
+background:#fff;overflow:auto;text-align:left;padding:20px;
 }
 
 /* MODAL */
 .modal{
-  position:fixed;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,.5);
-  display:none;
-  justify-content:center;
-  align-items:center;
-  z-index:9999;
+position:fixed;top:0;left:0;width:100%;height:100%;
+background:rgba(0,0,0,.5);
+display:none;justify-content:center;align-items:center;
+z-index:10000;
 }
 .box{
-  background:#fff;
-  padding:20px;
-  border-radius:15px;
-  width:85%;
-  max-width:320px;
+background:#fff;padding:20px;border-radius:15px;
+width:85%;max-width:320px;
 }
 
-/* PAYMENT */
 .pay-btn{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  padding:12px;
-  margin:10px 0;
-  border-radius:10px;
-  color:white;
+display:flex;align-items:center;justify-content:center;
+gap:10px;margin:10px 0;padding:12px;border-radius:10px;color:white;
 }
 .bkash{background:#e2136e;}
 .nagad{background:#ff7a00;}
-.pay-btn img{
-  width:40px;
-  background:white;
-  padding:5px;
-  border-radius:6px;
-}
+.pay-btn img{width:40px;background:white;padding:5px;border-radius:6px;}
 </style>
 </head>
 
 <body>
 
-<!-- LOADER -->
 <div id="loader"><div class="spinner"></div></div>
 
-<!-- INTRO -->
 <div id="intro"><img src="logo.png" class="intro-logo"></div>
 
-<!-- BACK -->
 <div class="back" id="backBtn" onclick="goHome()">←</div>
 
 <!-- HOME -->
@@ -182,6 +112,7 @@ Location</a>
 href="https://search.google.com/local/writereview?placeid=ChIJbV6OIQDbVTcRroLxH0yk84Q">
 Reviews</a>
 
+<!-- 🔥 PAY FIX -->
 <div class="btn pay" onclick="openPay()">Pay Now</div>
 </div>
 
@@ -192,36 +123,13 @@ Reviews</a>
 <div class="btn services" onclick="openList('pc')">💻 PC</div>
 </div>
 
-<!-- MOBILE -->
-<div id="mobile" class="list screen">
-<h2>Mobile Services</h2>
-<ul>
-<li>Display Fix</li>
-<li>Battery Replacement</li>
-<li>Charging Repair</li>
-<li>Software Flashing</li>
-<li>Device Unlocking</li>
-<li>Data Backup</li>
-<li>Speaker Fix</li>
-</ul>
-</div>
+<!-- LIST -->
+<div id="mobile" class="list screen"><h2>Mobile Services</h2></div>
+<div id="pc" class="list screen"><h2>PC Services</h2></div>
 
-<!-- PC -->
-<div id="pc" class="list screen">
-<h2>PC Services</h2>
-<ul>
-<li>Hardware Fix</li>
-<li>Software Fix</li>
-<li>OS Install</li>
-<li>Virus Removal</li>
-<li>SSD Upgrade</li>
-</ul>
-</div>
-
-<!-- PAYMENT -->
+<!-- PAYMENT MODAL -->
 <div class="modal" id="payModal">
 <div class="box">
-
 <h3>Payment</h3>
 
 <div class="pay-btn bkash"
@@ -235,11 +143,16 @@ onclick="window.location.href='https://play.google.com/store/apps/details?id=com
 </div>
 
 <button onclick="closePay()">Close</button>
-
 </div>
 </div>
 
 <script>
+
+/* SAFE SELECT */
+const home = document.getElementById("home");
+const menu = document.getElementById("menu");
+const backBtn = document.getElementById("backBtn");
+const payModal = document.getElementById("payModal");
 
 /* RESET */
 function reset(){
@@ -247,7 +160,7 @@ document.querySelectorAll(".screen").forEach(el=>el.style.display="none");
 backBtn.style.display="none";
 }
 
-/* NAVIGATION */
+/* NAV */
 function goHome(){
 reset();
 home.style.display="block";
@@ -259,16 +172,17 @@ menu.style.display="block";
 backBtn.style.display="block";
 }
 
-function openList(type){
+function openList(id){
 reset();
-document.getElementById(type).style.display="block";
+document.getElementById(id).style.display="block";
 backBtn.style.display="block";
 }
 
-/* PAYMENT */
+/* 🔥 PAY FIX */
 function openPay(){
 payModal.style.display="flex";
 }
+
 function closePay(){
 payModal.style.display="none";
 }
@@ -276,17 +190,16 @@ payModal.style.display="none";
 /* LOAD */
 window.onload = function(){
 setTimeout(()=>{
-loader.style.display="none";
-intro.style.display="flex";
+document.getElementById("loader").style.display="none";
+document.getElementById("intro").style.display="flex";
 
 setTimeout(()=>{
-intro.style.display="none";
+document.getElementById("intro").style.display="none";
 goHome();
 },900);
 
 },500);
 }
-
 </script>
 
 </body>
