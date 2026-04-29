@@ -6,41 +6,36 @@
 <title>JontroBari</title>
 
 <style>
-body{margin:0;font-family:Arial;background:#f3f3f3;text-align:center;}
-
-/* LOADER */
-#loader{
-position:fixed;width:100%;height:100%;
-display:flex;justify-content:center;align-items:center;
-background:#f3f3f3;z-index:9999;
+body{
+  margin:0;
+  font-family:Arial;
+  background:#f3f3f3;
+  text-align:center;
 }
-.spinner{
-width:50px;height:50px;border:5px solid #ddd;
-border-top:5px solid #e2136e;border-radius:50%;
-animation:spin 1s linear infinite;
+
+/* SCREENS */
+.screen{display:none}
+
+/* LOGO */
+.logo{
+  width:250px;
+  margin-top:25px;
 }
-@keyframes spin{100%{transform:rotate(360deg);}}
-
-/* INTRO */
-#intro{
-position:fixed;width:100%;height:100%;
-display:none;justify-content:center;align-items:center;
-background:#f3f3f3;z-index:9998;
-}
-.intro-logo{width:220px;animation:zoom .8s ease;}
-@keyframes zoom{from{opacity:0;transform:scale(.5);}to{opacity:1;}}
-
-/* SCREEN */
-.screen{display:none;}
-
-.logo{width:250px;margin-top:20px}
 
 /* BUTTON */
 .btn{
-display:block;width:85%;max-width:320px;
-margin:12px auto;padding:15px;border-radius:14px;
-color:white;font-weight:bold;text-decoration:none;
+  display:block;
+  width:85%;
+  max-width:320px;
+  margin:12px auto;
+  padding:15px;
+  border-radius:14px;
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
 }
+.btn:active{transform:scale(.96)}
+
 .whatsapp{background:#28a745;}
 .call{background:#2f5f6b;}
 .map{background:#2f5f6b;}
@@ -48,47 +43,81 @@ color:white;font-weight:bold;text-decoration:none;
 .review{background:#f5a623;}
 .pay{background:#e2136e;}
 
-/* BACK */
+/* BACK BUTTON */
 .back{
-position:fixed;top:15px;left:15px;
-background:#333;color:#fff;padding:10px;
-border-radius:50%;display:none;z-index:10000;
+  position:fixed;
+  top:20px;
+  left:15px;
+  background:#333;
+  color:white;
+  padding:10px;
+  border-radius:50%;
+  z-index:999;
+  display:none;
 }
 
-/* LIST */
+/* LIST SCREEN */
 .list{
-position:fixed;top:0;left:0;width:100%;height:100%;
-background:#fff;overflow:auto;text-align:left;padding:20px;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:white;
+  overflow-y:auto;
+  text-align:left;
+  padding:70px 20px 30px; /* 🔥 top spacing fix */
+}
+
+/* HEADER */
+.list h2{
+  margin-top:10px;
 }
 
 /* MODAL */
 .modal{
-position:fixed;top:0;left:0;width:100%;height:100%;
-background:rgba(0,0,0,.5);
-display:none;justify-content:center;align-items:center;
-z-index:10000;
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.5);
+  display:none;
+  justify-content:center;
+  align-items:center;
 }
 .box{
-background:#fff;padding:20px;border-radius:15px;
-width:85%;max-width:320px;
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  width:85%;
+  max-width:320px;
 }
 
+/* PAYMENT */
 .pay-btn{
-display:flex;align-items:center;justify-content:center;
-gap:10px;margin:10px 0;padding:12px;border-radius:10px;color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:12px;
+  margin:10px 0;
+  border-radius:10px;
+  color:white;
 }
 .bkash{background:#e2136e;}
 .nagad{background:#ff7a00;}
-.pay-btn img{width:40px;background:white;padding:5px;border-radius:6px;}
+
+.pay-btn img{
+  width:40px;
+  background:white;
+  padding:5px;
+  border-radius:6px;
+}
 </style>
 </head>
 
 <body>
 
-<div id="loader"><div class="spinner"></div></div>
-
-<div id="intro"><img src="logo.png" class="intro-logo"></div>
-
+<!-- BACK -->
 <div class="back" id="backBtn" onclick="goHome()">←</div>
 
 <!-- HOME -->
@@ -98,39 +127,86 @@ gap:10px;margin:10px 0;padding:12px;border-radius:10px;color:white;
 
 <a class="btn whatsapp"
 href="https://wa.me/8801560026241?text=Hi%2C%20I%20want%20to%20get%20a%20service.">
-WhatsApp</a>
+WhatsApp
+</a>
 
 <a class="btn call" href="tel:+8801560026241">Call</a>
 
 <a class="btn map"
 href="https://maps.app.goo.gl/KcfMYgYNgyGyyiLdA">
-Location</a>
+Location
+</a>
 
 <div class="btn services" onclick="openMenu()">Services</div>
 
 <a class="btn review"
 href="https://search.google.com/local/writereview?placeid=ChIJbV6OIQDbVTcRroLxH0yk84Q">
-Reviews</a>
+Reviews
+</a>
 
-<!-- 🔥 PAY FIX -->
 <div class="btn pay" onclick="openPay()">Pay Now</div>
 </div>
 
 <!-- MENU -->
 <div id="menu" class="screen">
 <h2>Select Service</h2>
-<div class="btn services" onclick="openList('mobile')">📱 Phone</div>
-<div class="btn services" onclick="openList('pc')">💻 PC</div>
+
+<div class="btn services" onclick="openList('mobile')">
+📱 Phone Solutions
 </div>
 
-<!-- LIST -->
-<div id="mobile" class="list screen"><h2>Mobile Services</h2></div>
-<div id="pc" class="list screen"><h2>PC Services</h2></div>
+<div class="btn services" onclick="openList('pc')">
+💻 PC/Laptop Solutions
+</div>
+</div>
 
-<!-- PAYMENT MODAL -->
+<!-- MOBILE LIST -->
+<div id="mobile" class="list screen">
+<h2>Mobile Services</h2>
+<ul>
+<li>Display Fix</li>
+<li>Battery Replacement</li>
+<li>Charging Repair</li>
+<li>Software Flashing</li>
+<li>Device Unlocking</li>
+<li>Data Backup</li>
+<li>App Setup</li>
+<li>Speaker & Mic Fix</li>
+<li>Water Damage Fix</li>
+<li>Camera Repair</li>
+<li>Body/Casing Change</li>
+<li>Button Repair</li>
+<li>Glass Protection</li>
+<li>Sim Slot Repair</li>
+</ul>
+</div>
+
+<!-- PC LIST -->
+<div id="pc" class="list screen">
+<h2>PC/Laptop Services</h2>
+<ul>
+<li>Hardware Fix</li>
+<li>Software Fix</li>
+<li>OS Installation</li>
+<li>Data Recovery</li>
+<li>Network Setup</li>
+<li>Virus Removal</li>
+<li>Laptop Servicing</li>
+<li>Custom PC Build</li>
+<li>Account Setup</li>
+<li>System Speedup</li>
+<li>Driver Update</li>
+<li>Thermal Paste Refill</li>
+<li>Keyboard Repair</li>
+<li>HDD to SSD Upgrade</li>
+</ul>
+</div>
+
+<!-- PAYMENT -->
 <div class="modal" id="payModal">
 <div class="box">
-<h3>Payment</h3>
+
+<h3>Select Payment</h3>
 
 <div class="pay-btn bkash"
 onclick="window.location.href='https://play.google.com/store/apps/details?id=com.bKash.customerapp'">
@@ -142,64 +218,60 @@ onclick="window.location.href='https://play.google.com/store/apps/details?id=com
 <img src="nagad.png"> Nagad
 </div>
 
+<p>Send money to:<br><b>01560026241</b></p>
+
 <button onclick="closePay()">Close</button>
+
 </div>
 </div>
 
 <script>
 
-/* SAFE SELECT */
 const home = document.getElementById("home");
 const menu = document.getElementById("menu");
+const mobile = document.getElementById("mobile");
+const pc = document.getElementById("pc");
 const backBtn = document.getElementById("backBtn");
 const payModal = document.getElementById("payModal");
 
 /* RESET */
 function reset(){
-document.querySelectorAll(".screen").forEach(el=>el.style.display="none");
-backBtn.style.display="none";
+  home.style.display="none";
+  menu.style.display="none";
+  mobile.style.display="none";
+  pc.style.display="none";
 }
 
-/* NAV */
+/* NAVIGATION */
 function goHome(){
-reset();
-home.style.display="block";
+  reset();
+  home.style.display="block";
+  backBtn.style.display="none";
 }
 
 function openMenu(){
-reset();
-menu.style.display="block";
-backBtn.style.display="block";
+  reset();
+  menu.style.display="block";
+  backBtn.style.display="block";
 }
 
-function openList(id){
-reset();
-document.getElementById(id).style.display="block";
-backBtn.style.display="block";
+function openList(type){
+  reset();
+  document.getElementById(type).style.display="block";
+  backBtn.style.display="block";
 }
 
-/* 🔥 PAY FIX */
+/* PAYMENT */
 function openPay(){
-payModal.style.display="flex";
+  payModal.style.display="flex";
 }
-
 function closePay(){
-payModal.style.display="none";
+  payModal.style.display="none";
 }
 
-/* LOAD */
-window.onload = function(){
-setTimeout(()=>{
-document.getElementById("loader").style.display="none";
-document.getElementById("intro").style.display="flex";
-
-setTimeout(()=>{
-document.getElementById("intro").style.display="none";
+/* INIT */
 goHome();
-},900);
 
-},500);
-}
 </script>
 
 </body>
