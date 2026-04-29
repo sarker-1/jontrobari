@@ -6,34 +6,15 @@
 <title>JontroBari</title>
 
 <style>
-body{
-  margin:0;
-  font-family:Arial;
-  background:#f3f3f3;
-  text-align:center;
-}
-
-/* SCREEN CONTROL */
+body{margin:0;font-family:Arial;background:#f3f3f3;text-align:center;}
 .screen{display:none}
+.logo{width:250px;margin-top:25px;}
 
-/* LOGO */
-.logo{
-  width:250px;
-  margin-top:25px;
-}
-
-/* BUTTON */
 .btn{
-  display:block;
-  width:85%;
-  max-width:320px;
-  margin:12px auto;
-  padding:15px;
-  border-radius:14px;
-  color:white;
-  text-decoration:none;
-  font-weight:bold;
-  box-shadow:0 6px 12px rgba(0,0,0,.2);
+display:block;width:85%;max-width:320px;
+margin:12px auto;padding:15px;border-radius:14px;
+color:white;text-decoration:none;font-weight:bold;
+box-shadow:0 6px 12px rgba(0,0,0,.2);
 }
 .btn:active{transform:scale(.96)}
 
@@ -44,90 +25,50 @@ body{
 .review{background:#f5a623;}
 .pay{background:#e2136e;}
 
-/* BACK BUTTON */
 .back{
-  position:fixed;
-  top:20px;
-  left:15px;
-  background:#333;
-  color:white;
-  padding:10px;
-  border-radius:50%;
-  z-index:9999;
-  display:none;
+position:fixed;top:20px;left:15px;
+background:#333;color:white;padding:10px;
+border-radius:50%;z-index:9999;display:none;
 }
 
-/* MENU */
 #menu{padding-top:70px}
 
-/* SERVICE LIST */
 .list{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:white;
-  overflow-y:auto;
-  text-align:left;
-  padding:80px 20px 30px;
-  z-index:1000;
+position:fixed;top:0;left:0;width:100%;height:100%;
+background:white;overflow-y:auto;text-align:left;
+padding:80px 20px 30px;z-index:1000;
 }
 
-.list h2{
-  margin-top:0;
-}
-
-/* PAYMENT MODAL */
 .modal{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,.5);
-  display:none;
-  justify-content:center;
-  align-items:center;
-  z-index:2000;
+position:fixed;top:0;left:0;width:100%;height:100%;
+background:rgba(0,0,0,.5);
+display:none;justify-content:center;align-items:center;
+z-index:2000;
 }
 
 .box{
-  background:white;
-  padding:20px;
-  border-radius:15px;
-  width:85%;
-  max-width:320px;
+background:white;padding:20px;border-radius:15px;
+width:85%;max-width:320px;
 }
 
 .pay-btn{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  padding:12px;
-  margin:10px 0;
-  border-radius:10px;
-  color:white;
-  font-weight:bold;
+display:flex;align-items:center;justify-content:center;
+gap:10px;padding:12px;margin:10px 0;border-radius:10px;
+color:white;font-weight:bold;
 }
 
 .bkash{background:#e2136e;}
 .nagad{background:#ff7a00;}
 
 .pay-btn img{
-  width:42px;
-  height:42px;
-  background:white;
-  padding:5px;
-  border-radius:8px;
+width:42px;height:42px;background:white;
+padding:5px;border-radius:8px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- BACK -->
 <div class="back" id="backBtn" onclick="goHome()">←</div>
 
 <!-- HOME -->
@@ -137,25 +78,19 @@ body{
 
 <a class="btn whatsapp"
 href="https://wa.me/8801560026241?text=Hi%2C%20I%20want%20to%20get%20a%20service."
-target="_blank">
-Chat on WhatsApp
-</a>
+target="_blank">Chat on WhatsApp</a>
 
 <a class="btn call" href="tel:+8801560026241">Call Now</a>
 
 <a class="btn map"
 href="https://maps.app.goo.gl/KcfMYgYNgyGyyiLdA"
-target="_blank">
-View Location
-</a>
+target="_blank">View Location</a>
 
 <div class="btn services" onclick="openMenu()">Services</div>
 
 <a class="btn review"
 href="https://search.google.com/local/writereview?placeid=ChIJbV6OIQDbVTcRroLxH0yk84Q"
-target="_blank">
-Reviews
-</a>
+target="_blank">Reviews</a>
 
 <div class="btn pay" onclick="openPay()">Pay Now</div>
 </div>
@@ -221,13 +156,11 @@ Reviews
 
 <h3>Select Payment</h3>
 
-<div class="pay-btn bkash"
-onclick="window.location.href='https://play.google.com/store/apps/details?id=com.bKash.customerapp'">
+<div class="pay-btn bkash" onclick="openBkash()">
 <img src="bkash.png"> bKash
 </div>
 
-<div class="pay-btn nagad"
-onclick="window.location.href='https://play.google.com/store/apps/details?id=com.konasl.nagad'">
+<div class="pay-btn nagad" onclick="openNagad()">
 <img src="nagad.png"> Nagad
 </div>
 
@@ -255,38 +188,80 @@ function reset(){
   pc.style.display="none";
 }
 
-/* NAVIGATION */
+/* NAV */
 function goHome(){
-  closePay(); // 🔥 overlap fix
+  closePay();
   reset();
   home.style.display="block";
   backBtn.style.display="none";
 }
 
 function openMenu(){
-  closePay(); // 🔥 fix
+  closePay();
   reset();
   menu.style.display="block";
   backBtn.style.display="block";
 }
 
 function openList(type){
-  closePay(); // 🔥 fix
+  closePay();
   reset();
   document.getElementById(type).style.display="block";
   backBtn.style.display="block";
 }
 
-/* PAYMENT */
+/* PAYMENT MODAL */
 function openPay(){
   payModal.style.display="flex";
 }
-
 function closePay(){
   payModal.style.display="none";
 }
 
-/* CLICK OUTSIDE CLOSE */
+/* 🔥 SMART APP OPEN */
+
+function isAndroid(){
+  return /Android/i.test(navigator.userAgent);
+}
+function isIOS(){
+  return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+
+/* bKash */
+function openBkash(){
+  if(isAndroid()){
+    window.location.href = "intent://#Intent;scheme=bkash;package=com.bKash.customerapp;end";
+    setTimeout(()=>{
+      window.location.href="https://play.google.com/store/apps/details?id=com.bKash.customerapp";
+    },1500);
+  }else if(isIOS()){
+    window.location.href = "bkash://";
+    setTimeout(()=>{
+      window.location.href="https://apps.apple.com/";
+    },1500);
+  }else{
+    window.location.href="https://play.google.com/store/apps/details?id=com.bKash.customerapp";
+  }
+}
+
+/* Nagad */
+function openNagad(){
+  if(isAndroid()){
+    window.location.href = "intent://#Intent;scheme=nagad;package=com.konasl.nagad;end";
+    setTimeout(()=>{
+      window.location.href="https://play.google.com/store/apps/details?id=com.konasl.nagad";
+    },1500);
+  }else if(isIOS()){
+    window.location.href = "nagad://";
+    setTimeout(()=>{
+      window.location.href="https://apps.apple.com/";
+    },1500);
+  }else{
+    window.location.href="https://play.google.com/store/apps/details?id=com.konasl.nagad";
+  }
+}
+
+/* OUTSIDE CLICK CLOSE */
 window.onclick = function(e){
   if(e.target === payModal){
     closePay();
