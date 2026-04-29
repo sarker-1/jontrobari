@@ -13,155 +13,151 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 /* Container */
 .container {
   text-align: center;
-  padding: 25px 20px;
-  animation: fadeIn 0.6s ease;
 }
 
 /* Logo */
 .logo {
-  width: 240px;
-  margin-bottom: 12px;
-  filter: drop-shadow(0 12px 25px rgba(0,0,0,0.25));
-  animation: float 3s ease-in-out infinite;
+  width: 260px;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.25));
 }
 
 /* Title */
 h1 {
-  margin: 6px 0;
+  margin: 5px 0;
   color: #7a1c3a;
-  font-size: 30px;
-  letter-spacing: 0.5px;
+  font-size: 32px;
 }
 
 p {
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   color: #666;
-  font-size: 15px;
 }
 
 /* Buttons */
 .btn {
   display: block;
-  width: 280px;
-  max-width: 90%;
-  margin: 14px auto;
+  width: 290px;
+  margin: 15px auto;
   padding: 16px;
   border-radius: 16px;
   text-decoration: none;
   font-weight: bold;
   color: white;
-  font-size: 16px;
-  box-shadow: 
-    0 10px 18px rgba(0,0,0,0.2),
-    inset 0 2px 3px rgba(255,255,255,0.4);
   transition: all 0.25s ease;
-}
-
-/* Hover effect */
-.btn:hover {
-  transform: translateY(-3px);
   box-shadow: 
-    0 14px 22px rgba(0,0,0,0.25),
-    inset 0 2px 3px rgba(255,255,255,0.4);
+    0 8px 18px rgba(0,0,0,0.25),
+    inset 0 2px 3px rgba(255,255,255,0.3);
 }
 
-/* Press effect */
+/* Press animation */
 .btn:active {
-  transform: translateY(2px) scale(0.98);
+  transform: scale(0.96);
+  box-shadow: 
+    0 4px 10px rgba(0,0,0,0.3),
+    inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Hover */
+.btn:hover {
+  transform: translateY(-2px);
 }
 
 /* Colors */
-.whatsapp { background: linear-gradient(#34d058, #28a745); }
-.call { background: linear-gradient(#4a7d8c, #2f5f6b); }
-.map { background: linear-gradient(#4a7d8c, #2f5f6b); }
-.pay { background: linear-gradient(#ff4d6d, #c9184a); }
+.whatsapp {
+  background: linear-gradient(135deg, #34d058, #28a745);
+}
 
-/* Popup */
-.popup {
+.call {
+  background: linear-gradient(135deg, #4a7d8c, #2f5f6b);
+}
+
+.map {
+  background: linear-gradient(135deg, #4a7d8c, #2f5f6b);
+}
+
+.pay {
+  background: linear-gradient(135deg, #c2185b, #8e0038);
+}
+
+/* Modal */
+.modal {
   display: none;
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: rgba(0,0,0,0.5);
   justify-content: center;
   align-items: center;
 }
 
-/* Popup animation */
-.popup.show {
-  display: flex;
+.modal-content {
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  width: 85%;
+  max-width: 320px;
+  text-align: center;
   animation: fadeIn 0.3s ease;
 }
 
-.popup-content {
-  background: #fff;
-  padding: 24px;
-  border-radius: 16px;
-  text-align: center;
-  width: 280px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
-  animation: popUp 0.3s ease;
-}
-
-/* Payment buttons */
-.pay-option {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin: 12px 0;
-  padding: 13px;
-  border-radius: 12px;
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  font-size: 15px;
-  transition: 0.2s;
-}
-
-.pay-option:hover {
-  transform: scale(1.05);
-}
-
-.bkash { background: #e2136e; }
-.nagad { background: #f97316; }
-
-/* Icons */
-.pay-option img {
-  width: 26px;
-  height: 26px;
-}
-
-/* Close button */
-.close-btn {
-  margin-top: 12px;
-  padding: 8px 14px;
-  border-radius: 8px;
-  border: none;
-  background: #eee;
-  cursor: pointer;
-}
-
-/* Animations */
 @keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
-@keyframes popUp {
   from {transform: scale(0.8); opacity: 0;}
   to {transform: scale(1); opacity: 1;}
 }
 
-@keyframes float {
-  0%,100% {transform: translateY(0);}
-  50% {transform: translateY(-6px);}
+/* Payment options */
+.pay-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 12px 0;
+  padding: 16px;
+  border-radius: 14px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.pay-option:active {
+  transform: scale(0.96);
+}
+
+/* Logo size + visibility */
+.pay-option img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+}
+
+/* Brand colors */
+.bkash {
+  background: linear-gradient(135deg, #e2136e, #b90d57);
+}
+
+.nagad {
+  background: linear-gradient(135deg, #ff7a00, #e65c00);
+}
+
+/* Close button */
+.close-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #ddd;
+  cursor: pointer;
 }
 </style>
 </head>
@@ -170,51 +166,65 @@ p {
 
 <div class="container">
 
-  <img src="logo.png?v=2" class="logo">
+  <!-- Logo -->
+  <img src="logo.png" class="logo">
 
   <h1>JontroBari</h1>
   <p>At Your Service</p>
 
-  <a class="btn whatsapp" href="https://wa.me/message/BJ7O7USQ6TWCK1">Chat on WhatsApp</a>
-  <a class="btn call" href="tel:+8801560026241">Call Now</a>
-  <a class="btn map" href="https://maps.app.goo.gl/5wGvWdRfqwQMRtxk6?g_st=ic">View Location</a>
+  <a class="btn whatsapp" href="https://wa.me/message/BJ7O7USQ6TWCK1">
+    Chat on WhatsApp
+  </a>
 
-  <button class="btn pay" onclick="openPopup()">Pay Now</button>
+  <a class="btn call" href="tel:+8801560026241">
+    Call Now
+  </a>
+
+  <a class="btn map" href="https://maps.app.goo.gl/5wGvWdRfqwQMRtxk6?g_st=ic">
+    View Location
+  </a>
+
+  <div class="btn pay" onclick="openModal()">
+    Pay Now
+  </div>
 
 </div>
 
-<!-- Popup -->
-<div class="popup" id="popup">
-  <div class="popup-content">
-
+<!-- Modal -->
+<div class="modal" id="paymentModal">
+  <div class="modal-content">
     <h3>Select Payment</h3>
 
-    <a class="pay-option bkash" href="https://www.bkash.com/" target="_blank">
-      <img src="bkash.png">
-      bKash
-    </a>
+    <div class="pay-option bkash" onclick="pay('bkash')">
+      <img src="bkash.png"> bKash
+    </div>
 
-    <a class="pay-option nagad" href="https://nagad.com.bd/" target="_blank">
-      <img src="nagad.png">
-      Nagad
-    </a>
+    <div class="pay-option nagad" onclick="pay('nagad')">
+      <img src="nagad.png"> Nagad
+    </div>
 
-    <p style="margin-top:12px;">
-      Send money to:<br><b>01560026241</b>
-    </p>
+    <p>Send money to:<br><b>01560026241</b></p>
 
-    <button class="close-btn" onclick="closePopup()">Close</button>
-
+    <button class="close-btn" onclick="closeModal()">Close</button>
   </div>
 </div>
 
 <script>
-function openPopup() {
-  document.getElementById("popup").classList.add("show");
+function openModal() {
+  document.getElementById("paymentModal").style.display = "flex";
 }
 
-function closePopup() {
-  document.getElementById("popup").classList.remove("show");
+function closeModal() {
+  document.getElementById("paymentModal").style.display = "none";
+}
+
+function pay(method) {
+  if(method === 'bkash') {
+    window.location.href = "https://play.google.com/store/apps/details?id=com.bKash.customerapp";
+  }
+  if(method === 'nagad') {
+    window.location.href = "https://play.google.com/store/apps/details?id=com.konasl.nagad";
+  }
 }
 </script>
 
