@@ -24,7 +24,6 @@ body{
   align-items:center;
   z-index:9999;
 }
-
 .spinner{
   width:50px;
   height:50px;
@@ -46,28 +45,22 @@ body{
   align-items:center;
   z-index:9998;
 }
-
 .intro-logo{
   width:220px;
-  animation:zoomIn 1s ease;
+  animation:zoom .8s ease;
 }
-@keyframes zoomIn{
-  from{opacity:0;transform:scale(0.5);}
+@keyframes zoom{
+  from{opacity:0;transform:scale(.5);}
   to{opacity:1;}
 }
 
-/* MAIN */
-#home{display:none;}
+/* SCREEN */
+.screen{display:none;}
 
 .logo{
   width:260px;
   margin-top:25px;
-  filter:drop-shadow(0 10px 20px rgba(0,0,0,0.25));
 }
-
-/* TEXT */
-h1{color:#7a1c3a;}
-p{color:#666;}
 
 /* BUTTON */
 .btn{
@@ -75,12 +68,11 @@ p{color:#666;}
   width:85%;
   max-width:320px;
   margin:12px auto;
-  padding:16px;
+  padding:15px;
   border-radius:14px;
   color:white;
-  text-decoration:none;
   font-weight:bold;
-  transition:.2s;
+  text-decoration:none;
 }
 .btn:active{transform:scale(.96);}
 
@@ -97,37 +89,24 @@ p{color:#666;}
   top:15px;
   left:15px;
   background:#333;
-  color:white;
+  color:#fff;
   padding:10px;
   border-radius:50%;
   display:none;
   z-index:10000;
 }
 
-/* SERVICES */
-.service-menu{display:none;}
-
-.option-btn{
-  background:#6a5acd;
-  color:white;
-  padding:14px;
-  margin:10px;
-  border-radius:12px;
-}
-
-/* LIST FULLSCREEN */
-.service-list{
-  display:none;
+/* LIST */
+.list{
   position:fixed;
   top:0;
   left:0;
   width:100%;
   height:100%;
-  background:white;
+  background:#fff;
   overflow-y:auto;
   text-align:left;
   padding:20px;
-  z-index:5000;
 }
 
 /* MODAL */
@@ -135,42 +114,38 @@ p{color:#666;}
   position:fixed;
   width:100%;
   height:100%;
-  background:rgba(0,0,0,.4);
+  background:rgba(0,0,0,.5);
   display:none;
   justify-content:center;
   align-items:center;
   z-index:9999;
 }
-
-.modal-box{
-  background:white;
+.box{
+  background:#fff;
   padding:20px;
-  border-radius:18px;
+  border-radius:15px;
   width:85%;
   max-width:320px;
 }
 
+/* PAYMENT */
 .pay-btn{
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:12px;
-  padding:14px;
+  gap:10px;
+  padding:12px;
   margin:10px 0;
-  border-radius:12px;
+  border-radius:10px;
   color:white;
-  font-weight:bold;
 }
-
 .bkash{background:#e2136e;}
 .nagad{background:#ff7a00;}
-
 .pay-btn img{
   width:40px;
-  height:40px;
   background:white;
+  padding:5px;
   border-radius:6px;
-  padding:4px;
 }
 </style>
 </head>
@@ -181,46 +156,45 @@ p{color:#666;}
 <div id="loader"><div class="spinner"></div></div>
 
 <!-- INTRO -->
-<div id="intro">
-<img src="logo.png" class="intro-logo">
-</div>
+<div id="intro"><img src="logo.png" class="intro-logo"></div>
+
+<!-- BACK -->
+<div class="back" id="backBtn" onclick="goHome()">←</div>
 
 <!-- HOME -->
-<div id="home">
+<div id="home" class="screen">
 <img src="logo.png" class="logo">
-<h1>JontroBari</h1>
-<p>At Your Service</p>
+<h2>JontroBari</h2>
 
 <a class="btn whatsapp"
-href="https://wa.me/8801560026241?text=Hi%2C%20I%20want%20to%20get%20a%20service."
-target="_blank">Chat on WhatsApp</a>
+href="https://wa.me/8801560026241?text=Hi%2C%20I%20want%20to%20get%20a%20service.">
+WhatsApp</a>
 
-<a class="btn call" href="tel:+8801560026241">Call Now</a>
+<a class="btn call" href="tel:+8801560026241">Call</a>
 
-<a class="btn map" href="https://maps.app.goo.gl/KcfMYgYNgyGyyiLdA" target="_blank">View Location</a>
+<a class="btn map"
+href="https://maps.app.goo.gl/KcfMYgYNgyGyyiLdA">
+Location</a>
 
-<div class="btn services" onclick="openServices()">Services</div>
+<div class="btn services" onclick="openMenu()">Services</div>
 
 <a class="btn review"
-href="https://search.google.com/local/writereview?placeid=ChIJbV6OIQDbVTcRroLxH0yk84Q"
-target="_blank">⭐ Reviews</a>
+href="https://search.google.com/local/writereview?placeid=ChIJbV6OIQDbVTcRroLxH0yk84Q">
+Reviews</a>
 
 <div class="btn pay" onclick="openPay()">Pay Now</div>
 </div>
 
-<!-- BACK -->
-<div class="back" id="backBtn" onclick="goBack()">←</div>
-
 <!-- MENU -->
-<div id="menu" class="service-menu">
+<div id="menu" class="screen">
 <h2>Select Service</h2>
-<div class="option-btn" onclick="showList('mobile')">📱 Phone Solutions</div>
-<div class="option-btn" onclick="showList('pc')">💻 PC/Laptop Solutions</div>
+<div class="btn services" onclick="openList('mobile')">📱 Phone</div>
+<div class="btn services" onclick="openList('pc')">💻 PC</div>
 </div>
 
 <!-- MOBILE -->
-<div id="mobile" class="service-list">
-<h2>Mobile Solutions</h2>
+<div id="mobile" class="list screen">
+<h2>Mobile Services</h2>
 <ul>
 <li>Display Fix</li>
 <li>Battery Replacement</li>
@@ -228,43 +202,27 @@ target="_blank">⭐ Reviews</a>
 <li>Software Flashing</li>
 <li>Device Unlocking</li>
 <li>Data Backup</li>
-<li>App Setup</li>
-<li>Speaker & Mic Fix</li>
-<li>Water Damage Fix</li>
-<li>Camera Repair</li>
-<li>Body Change</li>
-<li>Button Repair</li>
-<li>Glass Protection</li>
-<li>Sim Slot Repair</li>
+<li>Speaker Fix</li>
 </ul>
 </div>
 
 <!-- PC -->
-<div id="pc" class="service-list">
-<h2>PC/Laptop Solutions</h2>
+<div id="pc" class="list screen">
+<h2>PC Services</h2>
 <ul>
 <li>Hardware Fix</li>
 <li>Software Fix</li>
-<li>OS Installation</li>
-<li>Data Recovery</li>
-<li>Network Setup</li>
+<li>OS Install</li>
 <li>Virus Removal</li>
-<li>Laptop Servicing</li>
-<li>Custom PC Build</li>
-<li>Account Setup</li>
-<li>System Speedup</li>
-<li>Driver Update</li>
-<li>Thermal Paste Refill</li>
-<li>Keyboard Repair</li>
-<li>HDD to SSD Upgrade</li>
+<li>SSD Upgrade</li>
 </ul>
 </div>
 
 <!-- PAYMENT -->
 <div class="modal" id="payModal">
-<div class="modal-box">
+<div class="box">
 
-<h3>Select Payment</h3>
+<h3>Payment</h3>
 
 <div class="pay-btn bkash"
 onclick="window.location.href='https://play.google.com/store/apps/details?id=com.bKash.customerapp'">
@@ -276,8 +234,6 @@ onclick="window.location.href='https://play.google.com/store/apps/details?id=com
 <img src="nagad.png"> Nagad
 </div>
 
-<p>Send money to:<br><b>01560026241</b></p>
-
 <button onclick="closePay()">Close</button>
 
 </div>
@@ -285,51 +241,50 @@ onclick="window.location.href='https://play.google.com/store/apps/details?id=com
 
 <script>
 
-/* LOADING FLOW */
-window.onload = function(){
-  setTimeout(()=>{
-    loader.style.display="none";
-    intro.style.display="flex";
-
-    setTimeout(()=>{
-      intro.style.display="none";
-      home.style.display="block";
-    },1000);
-
-  },600);
+/* RESET */
+function reset(){
+document.querySelectorAll(".screen").forEach(el=>el.style.display="none");
+backBtn.style.display="none";
 }
 
-/* PAY */
+/* NAVIGATION */
+function goHome(){
+reset();
+home.style.display="block";
+}
+
+function openMenu(){
+reset();
+menu.style.display="block";
+backBtn.style.display="block";
+}
+
+function openList(type){
+reset();
+document.getElementById(type).style.display="block";
+backBtn.style.display="block";
+}
+
+/* PAYMENT */
 function openPay(){
-  payModal.style.display="flex";
+payModal.style.display="flex";
 }
 function closePay(){
-  payModal.style.display="none";
+payModal.style.display="none";
 }
 
-/* SERVICES */
-function openServices(){
-  home.style.display="none";
-  menu.style.display="block";
-  backBtn.style.display="block";
-  closePay();
-}
+/* LOAD */
+window.onload = function(){
+setTimeout(()=>{
+loader.style.display="none";
+intro.style.display="flex";
 
-function showList(type){
-  menu.style.display="none";
-  mobile.style.display="none";
-  pc.style.display="none";
-  document.getElementById(type).style.display="block";
-  closePay();
-}
+setTimeout(()=>{
+intro.style.display="none";
+goHome();
+},900);
 
-function goBack(){
-  home.style.display="block";
-  menu.style.display="none";
-  mobile.style.display="none";
-  pc.style.display="none";
-  backBtn.style.display="none";
-  closePay();
+},500);
 }
 
 </script>
