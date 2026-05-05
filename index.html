@@ -8,12 +8,55 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-
 body{
   margin:0;
   font-family:'Poppins',sans-serif;
   background: linear-gradient(135deg,#ffe6ee,#e6f0ff);
   text-align:center;
+}
+
+/* 🔥 VISIT BUTTON PRO */
+.visit-btn{
+  position:fixed;
+  top:15px;
+  right:15px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  background: linear-gradient(135deg,#ff4d6d,#ff0066);
+  color:white;
+  padding:10px 14px;
+  border-radius:30px;
+  font-size:13px;
+  font-weight:600;
+  text-decoration:none;
+  z-index:999;
+  box-shadow:0 0 20px rgba(255,0,100,0.4);
+  animation:float 3s ease-in-out infinite;
+}
+
+/* floating effect */
+@keyframes float{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-4px);}
+  100%{transform:translateY(0);}
+}
+
+/* glow pulse */
+.visit-btn::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:30px;
+  box-shadow:0 0 25px rgba(255,0,100,0.6);
+  opacity:.5;
+  animation:glowPulse 2s infinite;
+}
+
+@keyframes glowPulse{
+  0%{opacity:.3;}
+  50%{opacity:.8;}
+  100%{opacity:.3;}
 }
 
 /* LOGO */
@@ -22,97 +65,85 @@ body{
   margin-top:25px;
 }
 
-/* TITLE */
-h2{
-  margin:10px 0 0;
-}
-p{
-  margin:0 0 20px;
-  color:#ff4d6d;
-  font-size:14px;
-}
+/* TEXT */
+h2{ margin:10px 0 0; }
+p{ margin:0 0 20px; color:#ff4d6d; }
 
-/* BUTTON BASE */
+/* BUTTON */
 .btn{
   display:block;
   width:85%;
   max-width:320px;
   margin:14px auto;
   padding:16px;
-  border-radius:20px;
+  border-radius:22px;
   text-decoration:none;
   font-weight:600;
-  backdrop-filter: blur(10px);
-  background: rgba(255,255,255,0.6);
+  color:white;
+  position:relative;
+  overflow:hidden;
+  backdrop-filter: blur(12px);
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
   transition:.25s;
 }
 
-/* PRESS EFFECT */
-.btn:active{
-  transform:scale(0.95);
+/* ripple effect */
+.btn::after{
+  content:'';
+  position:absolute;
+  width:0;
+  height:0;
+  background:rgba(255,255,255,0.4);
+  border-radius:50%;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  transition:width .4s,height .4s;
 }
 
-/* COLORFUL BUTTONS */
-.whatsapp{
-  background: linear-gradient(135deg,#25d366,#1ebe5d);
-  color:white;
+.btn:active::after{
+  width:200%;
+  height:200%;
 }
 
-.call{
-  background: linear-gradient(135deg,#ff4d6d,#ff1e56);
-  color:white;
-}
+/* press */
+.btn:active{ transform:scale(.95); }
 
-.map{
-  background: linear-gradient(135deg,#4a7d8c,#2f5f6b);
-  color:white;
-}
+/* COLORS */
+.whatsapp{background: linear-gradient(135deg,#25d366,#1ebe5d);}
+.call{background: linear-gradient(135deg,#ff4d6d,#ff1e56);}
+.map{background: linear-gradient(135deg,#4a7d8c,#2f5f6b);}
+.services{background: linear-gradient(135deg,#6a5acd,#483d8b);}
+.review{background: linear-gradient(135deg,#f5a623,#d48806);}
+.pay{background: linear-gradient(135deg,#ff3b5c,#b3002d);}
 
-.services{
-  background: linear-gradient(135deg,#6a5acd,#483d8b);
-  color:white;
-}
-
-.review{
-  background: linear-gradient(135deg,#f5a623,#d48806);
-  color:white;
-}
-
-.pay{
-  background: linear-gradient(135deg,#ff3b5c,#b3002d);
-  color:white;
-}
-
-/* BACK BUTTON */
+/* BACK */
 .back{
   position:fixed;
   top:15px;
   left:15px;
   background:#333;
   color:white;
-  padding:10px;
+  padding:12px;
   border-radius:50%;
   display:none;
-  z-index:999;
+  z-index:1000;
 }
 
-/* SERVICE MENU */
-#menu{
-  display:none;
-}
+/* MENU */
+#menu{ display:none; }
 
 .option-btn{
   width:85%;
   margin:12px auto;
-  padding:15px;
+  padding:16px;
   border-radius:18px;
   background: linear-gradient(135deg,#6a5acd,#483d8b);
   color:white;
   font-weight:600;
 }
 
-/* FULL LIST SCREEN */
+/* LIST */
 .service-list{
   display:none;
   position:fixed;
@@ -121,20 +152,26 @@ p{
   width:100%;
   height:100%;
   background:white;
-  overflow-y:auto;
+  overflow:auto;
   text-align:left;
-  padding:80px 20px;
+  padding:90px 20px;
 }
 
-/* PAYMENT MODAL */
+.service-list h2{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+/* PAYMENT */
 .modal{
   position:fixed;
   width:100%;
   height:100%;
-  background:rgba(0,0,0,0.4);
+  background:rgba(0,0,0,.4);
   display:none;
   justify-content:center;
   align-items:center;
+  z-index:999;
 }
 
 .modal-box{
@@ -145,7 +182,6 @@ p{
   max-width:320px;
 }
 
-/* PAYMENT BUTTON */
 .pay-btn{
   display:flex;
   align-items:center;
@@ -155,7 +191,7 @@ p{
   margin:10px 0;
   border-radius:14px;
   color:white;
-  font-weight:bold;
+  font-weight:600;
 }
 
 .bkash{background:#e2136e;}
@@ -174,6 +210,11 @@ p{
 
 <body>
 
+<!-- 🔥 VISIT WEBSITE -->
+<a href="https://your-website-link.com" target="_blank" class="visit-btn">
+🌐 Visit
+</a>
+
 <div class="back" id="backBtn" onclick="goHome()">←</div>
 
 <!-- HOME -->
@@ -185,47 +226,28 @@ p{
 
 <a class="btn whatsapp"
 href="https://wa.me/8801560026241?text=Hi%2C%20I%20want%20to%20get%20a%20service."
-target="_blank">
-WhatsApp
-</a>
+target="_blank">WhatsApp</a>
 
-<a class="btn call" href="tel:+8801560026241">
-Call Now
-</a>
+<a class="btn call" href="tel:+8801560026241">Call Now</a>
 
 <a class="btn map"
 href="https://maps.app.goo.gl/KcfMYgYNgyGyyiLdA"
-target="_blank">
-Location
-</a>
+target="_blank">Location</a>
 
-<div class="btn services" onclick="openMenu()">
-Services
-</div>
+<div class="btn services" onclick="openMenu()">Services</div>
 
 <a class="btn review"
 href="https://search.google.com/local/writereview?placeid=ChIJbV6OIQDbVTcRroLxH0yk84Q"
-target="_blank">
-Reviews
-</a>
+target="_blank">Reviews</a>
 
-<div class="btn pay" onclick="openPay()">
-Pay Now
+<div class="btn pay" onclick="openPay()">Pay Now</div>
 </div>
 
-</div>
-
-<!-- SERVICE MENU -->
+<!-- MENU -->
 <div id="menu">
 <h2>Select Service</h2>
-
-<div class="option-btn" onclick="openList('mobile')">
-📱 Phone Solutions
-</div>
-
-<div class="option-btn" onclick="openList('pc')">
-💻 PC/Laptop Solutions
-</div>
+<div class="option-btn" onclick="openList('mobile')">📱 Phone Solutions</div>
+<div class="option-btn" onclick="openList('pc')">💻 PC/Laptop Solutions</div>
 </div>
 
 <!-- MOBILE -->
